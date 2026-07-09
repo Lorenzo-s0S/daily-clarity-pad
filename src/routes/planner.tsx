@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ListChecks, Plus, X, Loader2, Sparkles } from "lucide-react";
+import { ListChecks, Plus, X, Loader2, Sparkles, ArrowUp, ArrowDown } from "lucide-react";
 import { toast } from "sonner";
 import { generateAiText } from "@/lib/ai.functions";
 import { Card, CardContent } from "@/components/ui/card";
