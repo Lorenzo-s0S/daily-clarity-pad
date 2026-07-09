@@ -133,6 +133,17 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
     setSchedule((p) => p.map((s) => (s.id === id ? { ...s, done: !s.done } : s)));
   }
 
+  function move(id: string, dir: -1 | 1) {
+    setSchedule((p) => {
+      const i = p.findIndex((s) => s.id === id);
+      const j = i + dir;
+      if (i < 0 || j < 0 || j >= p.length) return p;
+      const next = [...p];
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
+  }
+
   return (
     <div>
       <PageHeader
@@ -176,8 +187,11 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
               <h2 className="text-lg font-semibold">Today's schedule</h2>
               <Button size="sm" variant="ghost" onClick={() => setSchedule([])}>Clear</Button>
             </div>
+            <p className="mb-3 text-xs text-muted-foreground">
+              AI-recommended order below. Use the arrows to reorder to your preference.
+            </p>
             <ol className="space-y-3">
-              {schedule.map((s) => (
+              {schedule.map((s, idx) => (
                 <li
                   key={s.id}
                   className="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/30 p-3"
