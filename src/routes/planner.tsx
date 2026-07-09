@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ListChecks, Plus, X, Loader2, Sparkles } from "lucide-react";
+import { ListChecks, Plus, X, Loader2, Sparkles, ArrowUp, ArrowDown } from "lucide-react";
 import { toast } from "sonner";
 import { generateAiText } from "@/lib/ai.functions";
 import { Card, CardContent } from "@/components/ui/card";
@@ -133,6 +133,17 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
     setSchedule((p) => p.map((s) => (s.id === id ? { ...s, done: !s.done } : s)));
   }
 
+  function move(id: string, dir: -1 | 1) {
+    setSchedule((p) => {
+      const i = p.findIndex((s) => s.id === id);
+      const j = i + dir;
+      if (i < 0 || j < 0 || j >= p.length) return p;
+      const next = [...p];
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
+  }
+
   return (
     <div>
       <PageHeader
@@ -176,8 +187,11 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
               <h2 className="text-lg font-semibold">Today's schedule</h2>
               <Button size="sm" variant="ghost" onClick={() => setSchedule([])}>Clear</Button>
             </div>
+            <p className="mb-3 text-xs text-muted-foreground">
+              AI-recommended order below. Use the arrows to reorder to your preference.
+            </p>
             <ol className="space-y-3">
-              {schedule.map((s) => (
+              {schedule.map((s, idx) => (
                 <li
                   key={s.id}
                   className="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/30 p-3"
@@ -199,6 +213,24 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
                     <p className="mt-1 text-xs text-muted-foreground">
                       <span className="text-teal">Why:</span> {s.reason}
                     </p>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <button
+                      onClick={() => move(s.id, -1)}
+                      disabled={idx === 0}
+                      aria-label="Move up"
+                      className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30 disabled:hover:bg-transparent"
+                    >
+                      <ArrowUp className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      onClick={() => move(s.id, 1)}
+                      disabled={idx === schedule.length - 1}
+                      aria-label="Move down"
+                      className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30 disabled:hover:bg-transparent"
+                    >
+                      <ArrowDown className="h-3.5 w-3.5" />
+                    </button>
                   </div>
                 </li>
               ))}
