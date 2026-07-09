@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Mail, ListChecks, BookOpen, Timer, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, ListChecks, BookOpen, Timer, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import logoUrl from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   component: Dashboard,
@@ -38,12 +39,12 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="mb-8 flex items-start gap-3">
-        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-primary-foreground glow-primary">
-          <Sparkles className="h-6 w-6" />
+      <div className="mb-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:text-left">
+        <div className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/20 to-teal/20 p-3 glow-primary">
+          <img src={logoUrl} alt="AI Workplace logo" width={64} height={64} className="h-full w-full object-contain" />
         </div>
         <div className="min-w-0">
-          <h1 className="text-3xl font-semibold tracking-tight">Good day. Ready to focus?</h1>
+          <h1 className="text-3xl font-semibold tracking-tight">AI Workplace</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Your AI-powered command center for a productive workday.
           </p>
