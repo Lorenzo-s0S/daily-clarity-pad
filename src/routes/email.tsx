@@ -123,6 +123,19 @@ ${points || "(none)"}`;
                 </SelectContent>
               </Select>
             </div>
+            <div className="space-y-2">
+              <Label>Length</Label>
+              <Select value={length} onValueChange={setLength}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Short">Short (2–3 sentences)</SelectItem>
+                  <SelectItem value="Medium">Medium (short paragraphs)</SelectItem>
+                  <SelectItem value="Long">Long (detailed)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <Button onClick={run} disabled={loading} className="w-full glow-primary">
               {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
               {loading ? "Drafting…" : "Generate Email"}
