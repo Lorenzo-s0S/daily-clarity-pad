@@ -54,6 +54,7 @@ function EmailPage() {
       const user = `Recipient context: ${recipient || "(not specified)"}
 Purpose / topic: ${purpose || "(not specified)"}
 Tone: ${tone}
+Length: ${length} — ${lengthGuide[length]}
 Key points to cover:
 ${points || "(none)"}`;
       const res = await gen({ data: { system: EMAIL_SYSTEM, user } });
