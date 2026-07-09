@@ -34,8 +34,15 @@ function EmailPage() {
   const [purpose, setPurpose] = useState("");
   const [points, setPoints] = useState("");
   const [tone, setTone] = useState("Formal");
+  const [length, setLength] = useState("Medium");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const lengthGuide: Record<string, string> = {
+    Short: "Keep it brief: 2-3 short sentences, under 60 words total. Get straight to the point.",
+    Medium: "Aim for a balanced email: 2-3 short paragraphs, roughly 80-150 words.",
+    Long: "Write a thorough email: 3-5 paragraphs, roughly 200-350 words, with full context and detail.",
+  };
 
   async function run() {
     if (!purpose.trim() && !points.trim()) {
