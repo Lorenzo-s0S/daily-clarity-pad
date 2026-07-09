@@ -214,6 +214,24 @@ ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
                       <span className="text-teal">Why:</span> {s.reason}
                     </p>
                   </div>
+                  <div className="flex flex-col gap-1">
+                    <button
+                      onClick={() => move(s.id, -1)}
+                      disabled={idx === 0}
+                      aria-label="Move up"
+                      className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30 disabled:hover:bg-transparent"
+                    >
+                      <ArrowUp className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      onClick={() => move(s.id, 1)}
+                      disabled={idx === schedule.length - 1}
+                      aria-label="Move down"
+                      className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30 disabled:hover:bg-transparent"
+                    >
+                      <ArrowDown className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
                 </li>
               ))}
             </ol>
