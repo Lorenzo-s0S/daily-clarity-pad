@@ -17,16 +17,6 @@ export const Route = createFileRoute("/email")({
   component: EmailPage,
 });
 
-const EMAIL_SYSTEM = `You are an expert professional communicator drafting workplace emails.
-
-Your task: given a recipient context, purpose, key points, and desired tone, produce a complete, ready-to-send email.
-
-Rules:
-- Output MUST begin with exactly one line "Subject: <subject line>" and then a blank line, followed by the email body.
-- Body should include a proper greeting, well-structured paragraphs, and a professional sign-off placeholder like "Best regards,\\n[Your name]".
-- Match the requested tone precisely.
-- Keep it concise but complete. Avoid filler, avoid clichés, avoid emojis unless friendly tone strongly warrants a single one.
-- Do NOT include any commentary before or after the email. Output only the email.`;
 
 function EmailPage() {
   const gen = useServerFn(generateAiText);
