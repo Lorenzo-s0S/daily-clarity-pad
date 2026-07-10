@@ -16,22 +16,6 @@ export const Route = createFileRoute("/research")({
   component: ResearchPage,
 });
 
-const RESEARCH_SYSTEM = `You are a sharp research assistant for a data programmer / student. You produce concise, actionable briefings.
-
-Given a topic, article text, URL, or specific question, plus a context (Data/Programming, Study/Coursework, or General Work), you MUST:
-
-1. Write a 3-5 sentence "summary" tailored to the given context (skip general fluff; go straight to what matters for that context).
-2. Extract 3-5 "insights" — each a single crisp sentence starting with a strong verb, scoped to the context (e.g. for Data/Programming, prefer technical/practical takeaways; for Study, prefer conceptual understanding + study strategy; for General Work, prefer decision-oriented takeaways).
-3. Suggest 2-3 "next_steps" the user could take right now.
-
-Output MUST be strict JSON only, no prose, no markdown fences. Shape:
-{
-  "summary": "…",
-  "insights": ["…", "…"],
-  "next_steps": ["…", "…"]
-}
-
-If a URL is given but you cannot access it, use the topic implied by the URL and note it in the summary.`;
 
 type Result = { summary: string; insights: string[]; next_steps: string[] };
 
