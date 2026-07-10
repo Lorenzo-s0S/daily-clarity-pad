@@ -25,23 +25,6 @@ type ScheduleItem = {
   done: boolean;
 };
 
-const PLANNER_SYSTEM = `You are an expert productivity coach for data programmers and students.
-
-Given two lists of tasks (leftover from yesterday, and new for today), produce a prioritized, time-blocked schedule for the day.
-
-Prioritization rules:
-1. Leftover tasks from yesterday get slight priority bump (avoid slipping further).
-2. Consider urgency (deadlines) and impact (blocking others / high learning value).
-3. Group deep-focus tasks (coding, studying) in the morning; meetings/admin midday; lighter tasks late.
-4. Include short breaks between deep-focus blocks (Pomodoro-friendly).
-5. Assume the workday runs 9:00 to 17:30 unless the tasks imply otherwise.
-
-Output MUST be strict JSON only, no prose, no markdown fences. Shape:
-{
-  "schedule": [
-    { "time": "09:00 – 10:00", "task": "…", "reason": "why this now (1 short sentence)" }
-  ]
-}`;
 
 function loadTasks(key: string): Task[] {
   try {
@@ -110,7 +93,7 @@ ${yesterday.map((t) => "- " + t.text).join("\n") || "(none)"}
 
 Tasks for today:
 ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
-      const res = await gen({ data: { system: PLANNER_SYSTEM, user } });
+      const res = await gen({ data: { kind: "planner", user } });
       const cleaned = res.content.replace(/^```json\s*|\s*```$/g, "").trim();
       const parsed = JSON.parse(cleaned) as { schedule: Array<{ time: string; task: string; reason: string }> };
       const items: ScheduleItem[] = parsed.schedule.map((s) => ({
