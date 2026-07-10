@@ -1,12 +1,12 @@
 # AI Workplace Productivity Assistant
 
-An all-in-one AI-powered dashboard designed for data programmers and students to prepare for a productive workday. It combines smart email drafting, AI task planning, focused research assistance, and a Pomodoro timer — all within a sleek, dark-themed interface.
+This is an all-in-one AI-powered dashboard designed for data programmers, students and anyone else to prepare for a productive workday. It combines smart email drafting, AI task planning, focused research assistance, and a Pomodoro timer, all within a sleek, dark-themed interface.
 
 ---
 
 ## Project Overview
 
-This application serves as a personal command center that leverages AI to handle repetitive communication and planning tasks, allowing users to focus on deep work. The dashboard provides quick access to four core productivity tools, with state persisted locally in the browser.
+This application serves as a personal command center that uses AI to handle repetitive communication and planning tasks, allowing users to focus on deep work. The dashboard provides quick access to four core productivity tools, with state persisted locally in the browser.
 
 ---
 
