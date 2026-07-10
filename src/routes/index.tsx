@@ -39,9 +39,9 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="mb-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:text-left">
-        <div className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/20 to-teal/20 p-3 glow-primary">
-          <img src={logoAsset.url} alt="AI Workplace logo" width={64} height={64} className="h-full w-full object-contain" />
+      <div className="mb-8 flex flex-col items-center gap-5 text-center">
+        <div className="grid h-32 w-32 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/20 to-teal/20 p-3 glow-primary">
+          <img src={logoAsset.url} alt="AI Workplace logo" width={128} height={128} className="h-full w-full object-contain" />
         </div>
         <div className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight">AI Workplace</h1>
