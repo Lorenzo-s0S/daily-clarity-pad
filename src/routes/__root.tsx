@@ -83,16 +83,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "All-in-one AI dashboard for data programmers and students: email generator, task planner, research assistant, and pomodoro timer.",
+          "All-in-one AI dashboard for data programmers, students and others interested: email generator, task planner, research assistant, and pomodoro timer.",
       },
       { property: "og:title", content: "AI Workplace Productivity Assistant" },
       {
         property: "og:description",
         content:
-          "Kickstart your workday with AI-powered email drafting, task planning, research, and focus timing.",
+          "All-in-one AI dashboard for data programmers, students and others interested: email generator, task planner, research assistant, and pomodoro timer.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AI Workplace Productivity Assistant" },
+      { name: "twitter:description", content: "All-in-one AI dashboard for data programmers, students and others interested: email generator, task planner, research assistant, and pomodoro timer." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/149de668-67c6-4a97-9a40-ae960f29d451" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/149de668-67c6-4a97-9a40-ae960f29d451" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
