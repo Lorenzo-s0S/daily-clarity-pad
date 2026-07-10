@@ -47,7 +47,7 @@ Tone: ${tone}
 Length: ${length} — ${lengthGuide[length]}
 Key points to cover:
 ${points || "(none)"}`;
-      const res = await gen({ data: { system: EMAIL_SYSTEM, user } });
+      const res = await gen({ data: { kind: "email", user } });
       setOutput(res.content.trim());
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Failed to generate email");
