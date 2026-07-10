@@ -53,7 +53,7 @@ function ResearchPage() {
 
 Input:
 ${input}`;
-      const res = await gen({ data: { system: RESEARCH_SYSTEM, user } });
+      const res = await gen({ data: { kind: "research", user } });
       const cleaned = res.content.replace(/^```json\s*|\s*```$/g, "").trim();
       const parsed = JSON.parse(cleaned) as Result;
       setResult(parsed);
