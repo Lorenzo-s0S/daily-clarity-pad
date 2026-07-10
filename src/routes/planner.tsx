@@ -110,7 +110,7 @@ ${yesterday.map((t) => "- " + t.text).join("\n") || "(none)"}
 
 Tasks for today:
 ${today.map((t) => "- " + t.text).join("\n") || "(none)"}`;
-      const res = await gen({ data: { system: PLANNER_SYSTEM, user } });
+      const res = await gen({ data: { kind: "planner", user } });
       const cleaned = res.content.replace(/^```json\s*|\s*```$/g, "").trim();
       const parsed = JSON.parse(cleaned) as { schedule: Array<{ time: string; task: string; reason: string }> };
       const items: ScheduleItem[] = parsed.schedule.map((s) => ({
