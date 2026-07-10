@@ -29,7 +29,7 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-3">
-          <div className="grid h-16 w-16 shrink-0 place-items-center rounded-lg overflow-hidden glow-primary mx-auto">
+          <div className="grid h-16 w-16 shrink-0 place-items-center rounded-lg overflow-hidden mx-auto">
             <img src={logoAsset.url} alt="AI Workplace" className="h-full w-full object-cover" />
           </div>
           <div className="min-w-0 group-data-[collapsible=icon]:hidden">

@@ -40,7 +40,7 @@ function Dashboard() {
   return (
     <div>
       <div className="mb-8 flex flex-col items-center gap-5 text-center">
-        <div className="grid h-36 w-36 shrink-0 place-items-center rounded-2xl overflow-hidden glow-primary">
+        <div className="grid h-36 w-36 shrink-0 place-items-center rounded-2xl overflow-hidden">
           <img src={logoAsset.url} alt="AI Workplace logo" className="h-full w-full object-cover" />
         </div>
         <div className="min-w-0">
