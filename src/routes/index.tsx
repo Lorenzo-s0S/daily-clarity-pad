@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Mail, ListChecks, BookOpen, Timer, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import logoUrl from "@/assets/logo.png";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Dashboard,
@@ -41,7 +41,7 @@ function Dashboard() {
     <div>
       <div className="mb-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:text-left">
         <div className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/20 to-teal/20 p-3 glow-primary">
-          <img src={logoUrl} alt="AI Workplace logo" width={64} height={64} className="h-full w-full object-contain" />
+          <img src={logoAsset.url} alt="AI Workplace logo" width={64} height={64} className="h-full w-full object-contain" />
         </div>
         <div className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight">AI Workplace</h1>
